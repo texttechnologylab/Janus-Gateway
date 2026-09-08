@@ -1,0 +1,22 @@
+# Standalone Janus Gateway.
+#
+# Runs stock Janus with whatever overrides you place in ./conf.d.
+# To consume this image from another project, see docs/configuration.md.
+
+services:
+  janus:
+    build: .
+    image: ghcr.io/texttechnologylab/janus-gateway:1.4.2
+
+    # Recommended. ICE has to see the real network interface to
+    # gather usable candidates, and the RTP range would otherwise need to be
+    # published port by port.
+    network_mode: host
+
+    volumes:
+      # Your overrides. Only the files you actually change.
+      - ./conf.d:/etc/janus.d:ro
+      # Recordings, if you enable them.
+      - ${RECORDINGS_DIR:-./data/recordings}:/mnt/recordings
+
+    restart: unless-stopped
