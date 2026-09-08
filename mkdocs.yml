@@ -1,0 +1,70 @@
+site_name: Janus Gateway Docs
+site_url: https://texttechnologylab.github.io/Janus-Gateway/
+site_description: >-
+  Pinned Janus WebRTC gateway container with layered configuration
+
+repo_url: https://github.com/texttechnologylab/Janus-Gateway
+repo_name: texttechnologylab/Janus-Gateway
+
+nav:
+  - Home: index.md
+  - Configuration: configuration.md
+  - Plugins: plugins.md
+  - Recordings: recordings.md
+  - Building: building.md
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle: {icon: material/link, name: Switch to light mode}
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle: {icon: material/toggle-switch, name: Switch to dark mode}
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: indigo
+      toggle: {icon: material/toggle-switch-off, name: Switch to system preference}
+  features:
+    - content.code.copy
+    - navigation.instant
+    - navigation.tabs
+    - navigation.expand
+    - navigation.tracking
+    - search.highlight
+    - search.suggest
+
+extra:
+  homepage: https://texttechnologylab.github.io/Janus-Gateway/
+  social:
+    - icon: fontawesome/solid/house
+      link: https://www.texttechnologylab.org/
+    - icon: fontawesome/brands/github
+      link: https://github.com/texttechnologylab
+
+plugins:
+  - search
+
+markdown_extensions:
+  - pymdownx.highlight: {anchor_linenums: true, line_spans: __span, pygments_lang_class: true}
+  - pymdownx.inlinehilite
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.details
+  - pymdownx.tabbed: {alternate_style: true}
+  - admonition
+  - attr_list
+  - md_in_html
+  - def_list
+  - tables
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
